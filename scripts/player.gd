@@ -32,7 +32,9 @@ func jump():
 	isJuming = true
 
 func manage_player_state():
-	if Global.is_play() and is_on_floor() and not isJuming and sprite.animation != "run":
+	if Global.is_dead():
+		sprite.play("dead")
+	elif Global.is_play() and is_on_floor() and not isJuming and sprite.animation != "run":
 		sprite.play("run")
 	elif isJuming and sprite.animation != "idle_and_jump":
 		sprite.play("idle_and_jump")
