@@ -22,6 +22,10 @@ InputManager="*res://scripts/input_manager.gd"
 Signals="*res://scripts/signals.gd"
 SoundManager="*res://scripts/sound_manager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
