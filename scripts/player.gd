@@ -13,6 +13,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	manage_player_state()
 	if Global.is_dead():
 		return
 	if not is_on_floor() and Global.is_play():
@@ -21,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if is_on_floor():
 		isJuming = false
-	manage_player_state()
+	
 
 func jump():
 	if Global.is_dead() or not is_on_floor():
