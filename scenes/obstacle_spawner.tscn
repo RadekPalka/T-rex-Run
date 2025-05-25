@@ -1,0 +1,17 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsvl1kiymkway"]
+
+[ext_resource type="Script" uid="uid://nrf1kc5hgeqg" path="res://scripts/obstacle_spawner.gd" id="1_c22tc"]
+[ext_resource type="PackedScene" uid="uid://c44ri3g6jqjwl" path="res://scenes/large_cactus_1.tscn" id="2_nlog2"]
+[ext_resource type="PackedScene" uid="uid://b76j1j3tque0l" path="res://scenes/large_cactus_2.tscn" id="3_2ui1o"]
+[ext_resource type="PackedScene" uid="uid://bdepcgq4puhmr" path="res://scenes/large_cactus_3.tscn" id="4_kqs25"]
+[ext_resource type="PackedScene" uid="uid://l45pfeojrlda" path="res://scenes/small_cactus_1.tscn" id="5_o3eyn"]
+[ext_resource type="PackedScene" uid="uid://bpvm0h7bniusf" path="res://scenes/small_cactus_2.tscn" id="6_qett6"]
+[ext_resource type="PackedScene" uid="uid://dd0n38qu5f0ae" path="res://scenes/small_cactus_3.tscn" id="7_7xut5"]
+
+[node name="ObstacleSpawner" type="Node2D"]
+script = ExtResource("1_c22tc")
+obstacles = Array[PackedScene]([ExtResource("2_nlog2"), ExtResource("3_2ui1o"), ExtResource("4_kqs25"), ExtResource("5_o3eyn"), ExtResource("6_qett6"), ExtResource("7_7xut5")])
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

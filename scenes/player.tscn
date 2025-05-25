@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://hmalvt4uy1yd"]
+
+[ext_resource type="Script" uid="uid://nqkx1sl2kwyq" path="res://scripts/player.gd" id="1_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://74xrpcafpoin" path="res://assets/imgs/dino-lose.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://3rca82hx13qd" path="res://assets/imgs/dino-stationary.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://b21qbbpf5e8at" path="res://assets/imgs/dino-run-0.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://clwqp1bwyy2a4" path="res://assets/imgs/dino-run-1.png" id="5_smehm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4r1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlg0r")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}],
+"loop": true,
+"name": &"idle_and_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_smehm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2wvv"]
+size = Vector2(73, 84)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_tuyoq")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y4r1p")
+animation = &"run"
+autoplay = "idle_and_jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_d2wvv")
